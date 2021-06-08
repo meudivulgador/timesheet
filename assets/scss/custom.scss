@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+$color-page: #292b37;
+$color-light:#f5f6fa;
+$color-title:#2c3e50;
+$color-page-title: #fff;
+$font-family-josefin: 'Josefin Sans',
+sans-serif;
+$font-family-lobster: 'Lobster',
+cursive;
+@mixin flash-effect() {
+    overflow: hidden;
+    position: relative;
+    a {
+        z-index: 20;
+    }
+    &:after {
+        background: #fff;
+        content: "";
+        height: 155px;
+        left: -80px;
+        opacity: 0.5;
+        position: absolute;
+        top: -45px;
+        transform: rotate(35deg);
+        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+        width: 50px;
+        z-index: 50;
+    }
+    &:hover:after {
+        left: 120%;
+        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+}
+
+@mixin not-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin list-items() {
+    .drag {
+        cursor: grab;
+        &:active {
+            cursor: grabbing;
+        }
+    }
+}
+
+@mixin active-item {
+    background-color: rgb(211, 211, 211);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, .5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    border: none;
+    &:hover {
+        background-color: rgb(211, 211, 211);
+    }
+}
+
+li {
+    @include flash-effect();
+    @include not-select();
+    font-family: 'arial';
+    font-size: 14px;
+    margin: 0px 0px 15px 0px;
+    background-color: #f5f6fa;
+    display: flex;
+    align-items: center;
+    transition: box-shadow 0.2s cubic-bezier(.79, .21, .06, .81);
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: rgb(211, 211, 211);
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    span {
+        padding-left: 10px;
+    }
+    &:active {
+        cursor: grabbing;
+        box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, .5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    }
+    &:hover {
+        background-color: #fff;
+    }
+    i {
+        padding: 10px;
+        border-radius: 5px;
+        color: #8f8e8e;
+        font-size: 18px;
+    }
+}
+
+body {
+    background-color: $color-page;
+    font-family: $font-family-josefin;
+    h1 {
+        color: $color-page-title;
+        font-weight: 900;
+        font-family: $font-family-josefin;
+    }
+    h5 {
+        font-weight: 600;
+        color: $color-title;
+    }
+}
+
+.active-item {
+    background-color: rgb(211, 211, 211);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, .5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    border: none;
+    &:hover {
+        background-color: rgb(211, 211, 211);
+    }
+}
+
+.blocos {
+    background-color: #f5f6fa;
+    border-radius: 10px;
+    box-shadow: rgba(20, 14, 54, 0.56) 0px 22px 70px 4px;
+}
+
+.contador {
+    .time {
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    .btn-player {
+        height: 40px;
+        width: 40px;
+        border-radius: 3px;
+        background: #f5f6fa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+        box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+        transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+        font-size: 20px;
+        text-decoration: none;
+        align-content: center;
+        flex-wrap: wrap;
+        &:active {
+            box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, .5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+        }
+        &:hover {
+            .start {
+                text-shadow: 0 0 20px #16a085;
+                color: #16a085;
+                transition: 1s;
+            }
+            .pause {
+                text-shadow: 0 0 20px #f1c40f;
+                color: #f1c40f;
+                transition: 1s;
+            }
+            .stop {
+                text-shadow: 0 0 20px #c0392b;
+                color: #c0392b;
+                transition: 1s;
+            }
+        }
+    }
+    .active-start {
+        i {
+            color: #16a085;
+        }
+        text-shadow: 0 0 20px #16a085;
+        @include active-item();
+        background: #f5f6fa;
+    }
+    .active-pause {
+        i {
+            color: #f1c40f;
+        }
+        text-shadow: 0 0 20px #f1c40f;
+        @include active-item();
+        background: #f5f6fa;
+    }
+    .active-stop {
+        i {
+            color: #c0392b;
+        }
+        text-shadow: 0 0 20px #c0392b;
+        @include active-item();
+        background: #f5f6fa;
+    }
+    .start {
+        color: #636e72;
+    }
+    .pause {
+        color: #636e72;
+    }
+    .stop {
+        color: #636e72;
+    }
+    .frame {
+        background-color: #f1f2f6;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;
+        width: 100%;
+        min-width: 155px;
+        position: relative;
+        box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+        transition: box-shadow 0.6s cubic-bezier(.79, .21, .06, .81);
+        border-radius: 10px;
+    }
+    .flash-effect {
+        @include flash-effect();
+    }
+}
+
+.tarefas {
+    @include list-items();
+}
+
+.projetos {
+    @include list-items();
+    li {
+        font-weight: 600;
+    }
+}

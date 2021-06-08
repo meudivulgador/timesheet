@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/scss/custom.css">
+
+    <title>Timesheet</title>
+</head>
+
+<body>
+
+    <section class="container py-5 rounded">
+
+        <div class="row align-items-center mx-4">
+
+            <div class="col text-start">
+                <h1>Timesheet</h1>
+            </div>
+
+            <div class="col text-end">
+                <button class="btn btn-light"><i class="fas fa-cog"></i></button>
+            </div>
+
+        </div>
+
+        <div class="row p-4 col">
+
+            <div id="temporizador" class="container m-2 mx-4 col blocos temporizador">
+
+                <h5 class="text-center pt-3">
+                    <i class="far fa-clock text-secondary"></i> Temporizador
+                </h5>
+
+                <div class="row py-4 px-2 col contador rounded">
+                    <div class="row mx-2">
+                        <div id="timer" class="time h1 text-center">00:00:00</div>
+                    </div>
+                    <div class="btn-group-sm text-center" role="group">
+                        <div class="frame">
+
+                            <a href="#" id="start" class="btn-player flash-effect">
+                                <i class="fas fa-play start"></i>
+                            </a>
+
+                            <a href="#" id="pause" class="btn-player flash-effect">
+                                <i class="fas fa-pause pause "></i>
+                            </a>
+                            <a href="#" id="stop" class="btn-player flash-effect">
+                                <i class="fas fa-stop stop "></i>
+                            </a>
+                        </div>
+                        <div class="info-job my-2 text-secondary ">
+                            <marquee>Essa é uma tarefa referente ao job A</marquee>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tarefas " class="container m-2 mx-4 col blocos tarefas ">
+
+                <h5 class="text-center pt-3 ">
+                    <i class="fas fa-tasks text-secondary "></i> Tarefas
+                </h5>
+
+                <div class="row p-4 col ">
+                    <div class="btn-group-sm " role="group ">
+                        <ul class="list-group ">
+                            <li class="list-group-item list-group-item-action ">
+                                <i class="fas fa-grip-vertical drag "></i>
+                                <span class="text-wrap text-end ">An item An itemAn item An item An item</span>
+                            </li>
+                            <li class="list-group-item list-group-item-action active-item ">
+                                <i class="fas fa-grip-vertical drag "></i>
+                                <span class="text-wrap text-end ">An item An itemAn item An item An item</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="projetos " class="container m-2 mx-4 col blocos projetos ">
+                <h5 class="text-center pt-3 ">
+                    <i class="fas fa-project-diagram text-secondary "></i> Projetos
+                </h5>
+                <div class="row p-4 col ">
+                    <div class="btn-group-sm " role="group ">
+                        <ul class="list-group ">
+                            <li class="list-group-item list-group-item-action active-item ">
+                                <i class="fas fa-grip-vertical drag "></i>
+                                <span class="text-wrap text-end ">Landingpage</span>
+                            </li>
+                            <li class="list-group-item list-group-item-action ">
+                                <i class="fas fa-grip-vertical drag "></i>
+                                <span class="text-wrap ">Web app</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4 " crossorigin="anonymous "></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js " integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js " integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT " crossorigin="anonymous "></script>
+    <script src="assets/js/server.js"></script>
+</body>
+
+</html>

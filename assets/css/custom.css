@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+body {
+  background-color: #201d3c;
+  font-family: "Josefin Sans", sans-serif;
+}
+body h1 {
+  color: #fff;
+  font-weight: 900;
+  font-family: "Josefin Sans", sans-serif;
+}
+body h5 {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.contador .btn-player {
+  height: 40px;
+  width: 40px;
+  border-radius: 3px;
+  background: #e0e5ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  font-size: 20px;
+  text-decoration: none;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.contador .btn-player:active {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5), -4px -4px 6px 0 rgba(116, 125, 136, 0.2), inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5), inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+}
+.contador .btn-player:hover .start {
+  text-shadow: 0 0 20px #16a085;
+  color: #16a085;
+  transition: 1s;
+}
+.contador .btn-player:hover .pause {
+  text-shadow: 0 0 20px #f1c40f;
+  color: #f1c40f;
+  transition: 1s;
+}
+.contador .btn-player:hover .stop {
+  text-shadow: 0 0 20px #c0392b;
+  color: #c0392b;
+  transition: 1s;
+}
+.contador .start {
+  color: #636e72;
+}
+.contador .pause {
+  color: #636e72;
+}
+.contador .stop {
+  color: #636e72;
+}
+.contador .frame {
+  background-color: #f1f2f6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  min-width: 155px;
+  position: relative;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001;
+  transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  border-radius: 10px;
+}
+.contador .flash-effect {
+  overflow: hidden;
+  position: relative;
+}
+.contador .flash-effect a {
+  z-index: 20;
+}
+.contador .flash-effect:after {
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.5;
+  position: absolute;
+  top: -45px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: 50;
+}
+.contador .flash-effect:hover:after {
+  left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/*# sourceMappingURL=custom.css.map */
