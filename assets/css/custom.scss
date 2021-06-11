@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;700;800;900&display=swap');
 $color-page: #292b37;
 $color-light:#f5f6fa;
 $color-title:#2c3e50;
 $color-page-title: #fff;
-$font-family-josefin: 'Josefin Sans',
+$font-family-montserrat: 'Montserrat',
 sans-serif;
-$font-family-lobster: 'Lobster',
-cursive;
 @mixin flash-effect() {
     overflow: hidden;
     position: relative;
@@ -60,18 +57,32 @@ cursive;
     }
 }
 
+body {
+    background: linear-gradient(to right, #ACB6E5, #74ebd5);
+    font-family: $font-family-montserrat;
+    h1 {
+        color: $color-page-title;
+        font-weight: 700;
+        font-family: $font-family-montserrat;
+    }
+    h5 {
+        font-weight: 600;
+        color: $color-title;
+    }
+}
+
 li {
     @include flash-effect();
     @include not-select();
-    font-family: 'arial';
-    font-size: 14px;
+    display: flex;
+    font-weight: 400;
+    font-family: $font-family-montserrat;
+    font-size: 12px;
     margin: 0px 0px 15px 0px;
     background-color: #f5f6fa;
-    display: flex;
     align-items: center;
     transition: box-shadow 0.2s cubic-bezier(.79, .21, .06, .81);
     cursor: pointer;
-    font-weight: 500;
     border-radius: 5px;
     background-color: rgb(211, 211, 211);
     border: none;
@@ -94,22 +105,19 @@ li {
     }
 }
 
-body {
-    background-color: $color-page;
-    font-family: $font-family-josefin;
-    h1 {
-        color: $color-page-title;
-        font-weight: 900;
-        font-family: $font-family-josefin;
-    }
-    h5 {
-        font-weight: 600;
-        color: $color-title;
+.list-group .list-group-item {
+    display: flex;
+    span {
+        overflow: hidden; // Removendo barra de rolagem
+        text-overflow: ellipsis; // Adicionando "..." ao final
+        display: -webkit-box;
+        -webkit-line-clamp: 2; // Quantidade de linhas
+        -webkit-box-orient: vertical;
     }
 }
 
 .active-item {
-    background-color: rgb(211, 211, 211);
+    background-color: #d7d7d7;
     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255, 255, 255, .5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
     border: none;
     &:hover {
