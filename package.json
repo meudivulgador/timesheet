@@ -1,0 +1,23 @@
+{
+  "name": "mytimesheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assets/js/index.js",
+  "scripts": {
+    "scss": "node-sass --watch --source-map true assets/scss -o assets/css --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meudivulgador/timesheet.git"
+  },
+  "author": "Samuel Prado Almeida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meudivulgador/timesheet/issues"
+  },
+  "homepage": "https://github.com/meudivulgador/timesheet#readme",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  },
+  "devDependencies": {}
+}
