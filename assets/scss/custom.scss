@@ -70,6 +70,9 @@ body {
         font-weight: 600;
         color: $color-title;
     }
+    a {
+        text-decoration: none;
+    }
 }
 
 li {
@@ -104,6 +107,10 @@ li {
         color: #8f8e8e;
         font-size: 18px;
     }
+}
+
+.logo {
+    text-decoration: none;
 }
 
 .list-group .list-group-item {
