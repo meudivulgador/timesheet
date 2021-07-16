@@ -1,80 +1,59 @@
-let startTimer = document.getElementById('start');
-let dateTime = new Date();
-startTimer.addEventListener('click', start);
+const Clock = {
+    totalSeconds: 0,
 
-let pauseTimer = document.getElementById('pause');
-pauseTimer.addEventListener('click', pause);
+    start() {
+        Clock.active('start');
+        if (!this.interval) {
+            const self = this;
 
-let stopTimer = document.getElementById('stop');
-stopTimer.addEventListener('click', stop);
+            function pad(val) { return val > 9 ? val : `0${val}`; }
+            this.interval = setInterval(() => {
+                self.totalSeconds += 1;
 
-var hh = 0;
-var mm = 0;
-var ss = 0;
-var active_timer = false;
-
-var cron;
-
-console.log(dateTime.getHours() + ':' + dateTime.getMinutes() + ':' + dateTime.getSeconds());
-
-//Inicia o temporizador
-function start() {
-    if (!active_timer) {
-        startTimer.classList.add('active-start');
-        pauseTimer.classList.remove('active-pause');
-        stopTimer.classList.remove('active-stop');
-        cron = setInterval(() => { timer(); }, 1000);
-        active_timer = true;
-    } else {
-        return;
-    }
-}
-
-//Para o temporizador mas não limpa as variáveis
-function pause() {
-    startTimer.classList.remove('active-start');
-    pauseTimer.classList.add('active-pause');
-    stopTimer.classList.remove('active-stop');
-    clearInterval(cron);
-    active_timer = false;
-}
-
-//Para o temporizador e limpa as variáveis
-function stop() {
-    startTimer.classList.remove('active-start');
-    pauseTimer.classList.remove('active-pause');
-    hh = 0;
-    mm = 0;
-    ss = 0;
-
-    document.getElementById('timer').innerText = '00:00:00';
-    clearInterval(cron);
-    active_timer = false;
-    document.querySelector('title').innerText = 'Timesheet';
-}
-
-//Faz a contagem do tempo e exibição
-function timer() {
-
-    ss++; //Incrementa +1 na variável ss
-
-    if (ss == 59) { //Verifica se deu 59 segundos
-        ss = 0; //Volta os segundos para 0
-        mm++; //Adiciona +1 na variável mm
-
-        if (mm == 59) { //Verifica se deu 59 minutos
-            mm = 0; //Volta os minutos para 0
-            hh++; //Adiciona +1 na variável hora
+                document.getElementById('hour').innerHTML = pad(Math.floor(self.totalSeconds / 60 / 60));
+                document.getElementById('min').innerHTML = pad(Math.floor(self.totalSeconds / 60 % 60));
+                document.getElementById('sec').innerHTML = pad(parseInt(self.totalSeconds % 60));
+            }, 1000);
         }
-    }
+    },
 
-    //Cria uma variável com o valor tratado HH:MM:SS
-    var format = (hh < 10 ? '0' + hh : hh) + ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss);
+    stop() {
+        Clock.active('stop');
 
-    //Insere o valor tratado no elemento counter
-    document.getElementById('timer').innerText = format;
-    document.querySelector('title').innerText = format;
+        Clock.totalSeconds = null;
+        clearInterval(this.interval);
+        document.getElementById('hour').innerHTML = '00';
+        document.getElementById('min').innerHTML = '00';
+        document.getElementById('sec').innerHTML = '00';
+        delete this.interval;
+    },
 
-    //Retorna o valor tratado
-    return format;
-}
+    pause() {
+        Clock.active('pause');
+
+        clearInterval(this.interval);
+        delete this.interval;
+    },
+    active(type) {
+        if (type === 'start') {
+            startButton.classList.add('active-start');
+            pauseButton.classList.remove('active-pause');
+            stopButton.classList.remove('active-stop');
+        } else if (type === 'pause') {
+            startButton.classList.remove('active-start');
+            pauseButton.classList.add('active-pause');
+            stopButton.classList.remove('active-stop');
+        } else if (type === 'stop') {
+            startButton.classList.remove('active-start');
+            pauseButton.classList.remove('active-pause');
+        }
+    },
+};
+
+const startButton = document.getElementById('startButton');
+const pauseButton = document.getElementById('pauseButton');
+const stopButton = document.getElementById('stopButton');
+
+startButton.addEventListener('click', () => { Clock.start(); });
+pauseButton.addEventListener('click', () => { Clock.pause(); });
+stopButton.addEventListener('click', () => { Clock.stop(); });
