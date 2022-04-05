@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/meudivulgador/timesheet#readme",
   "dependencies": {
-    "node-sass": "^6.0.1"
+    "node-sass": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^7.30.0",
